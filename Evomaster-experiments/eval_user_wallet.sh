@@ -1,37 +1,58 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -Eeuo pipefail
 
-# Define the URL
+# Config
 url="http://localhost:4000/graphql"
+times=("5s" "10s" "20s" "30s" "60s")
+num_experiments=20
 
-# Define the different max times to test
-times=(
-    "5s"
-    "10s"
-    "20s"
-    "30s"
-    "60s"
-)
+# Base output directory for this batch
+outdir="runs_$(date +%Y%m%d_%H%M%S)"
+mkdir -p "$outdir"
 
-# Loop through each time duration
 for max_time in "${times[@]}"; do
-    echo "Processing $url with max time: $max_time"
+  for exp in $(seq 1 "$num_experiments"); do
+    echo "[$(date +%T)] Processing $url with max time: $max_time (experiment $exp/$num_experiments)"
 
-    # Run EvoMaster with current time configuration
+    # Clean previous artifacts so runs don't mix
+    rm -rf generated_tests || true
+
+    # Optional: seed for reproducible randomness (uncomment if supported by your evomaster build)
+    # seed=$(( (RANDOM<<16) ^ (RANDOM<<1) ^ exp ))
+
+    # Run EvoMaster
     java -jar evomaster.jar \
-        --blackBox true \
-        --bbTargetUrl "$url" \
-        --problemType GRAPHQL \
-        --outputFormat JAVA_JUNIT_4 \
-        --maxTime "$max_time"
+      --blackBox true \
+      --bbTargetUrl "$url" \
+      --problemType GRAPHQL \
+      --outputFormat JAVA_JUNIT_4 \
+      --maxTime "$max_time"
+      # --seed "$seed"
 
-    # Create folder name with the time duration
-    folder_name="user-wallet-${max_time}-src"
+    # Move only *.java files from generated_tests to the run folder (preserve dir structure)
+    if [ -d "generated_tests" ]; then
+      dest="${outdir}/user-wallet-${max_time}-exp$(printf '%02d' "$exp")-src"
+      mkdir -p "$dest"
 
-    # Move the generated source to the new folder
-    if [ -d "src/em" ]; then
-        mv src/em "$folder_name"
-        echo "Moved output to $folder_name"
+      # Copy only .java files while keeping directories, then delete originals (net effect: move)
+      rsync -a -m \
+        --include='*/' \
+        --include='*.java' \
+        --exclude='*' \
+        "generated_tests/" "$dest/"
+
+      count=$(find "$dest" -type f -name '*.java' | wc -l | tr -d ' ')
+      if [ "$count" -gt 0 ]; then
+        # Remove the .java files we just copied, leaving any non-java artifacts untouched
+        find "generated_tests" -type f -name '*.java' -delete
+        echo "  Moved $count .java files to $dest"
+      else
+        echo "  Warning: no .java files found under generated_tests for this run"
+      fi
     else
-        echo "Warning: src/em directory not found for $max_time run"
+      echo "  Warning: generated_tests directory not found for $max_time (experiment $exp)"
     fi
+  done
 done
+
+echo "All done. Outputs saved under: $outdir"
