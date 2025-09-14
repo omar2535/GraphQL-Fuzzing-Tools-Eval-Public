@@ -1,0 +1,13 @@
+API,URI,GraphQLer(+),GraphQLer(-),Evomaster(+),Evomaster(-),Burpsuite (+),Burpsuite (-),ZAP(+),ZAP(-),Generic(+),Generic(-)
+User-wallet-API,https://github.com/escobarflughafen/GraphQLer2022/tree/main/test_server_2,92.31%,100.00%,61.54%,26.92%,7.69%,38.46%,50.00%,50.00%,38.00%,50.00%
+Food delivery API,https://github.com/escobarflughafen/sample-food-delivery-api,70.00%,100.00%,70.00%,40.00%,20.00%,90.00%,50.00%,20.00%,50.00%,50.00%
+Countries,https://countries.trevorblades.com/,50.00%,100.00%,50.00%,50.00%,50.00%,100.00%,33.33%,16.67%,50.00%,50.00%
+React-finland,https://api.react-finland.fi/graphql,53.85%,100.00%,38.46%,61.54%,0.00%,100.00%,15.38%,23.08%,53.84%,46.15%
+Rick&Morty,https://rickandmortyapi.com/graphql,66.67%,100.00%,66.67%,33.33%,0.00%,100.00%,33.33%,100.00%,66.67%,100.00%
+JSON Graphql,https://github.com/marmelab/json-graphql-server,100.00%,85.71%,57.14%,45.24%,19.05%,33.33%,28.57%,11.90%,57.14%,28.57%
+GraphQL Zero,https://graphqlzero.almansi.me/api,93.75%,93.75%,71.88%,56.25%,93.75%,62.50%,93.75%,62.50%,87.50%,21.88%
+Anilist,https://graphql.anilist.co/,8.92%,94.64%,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,8.92%,92.86%
+EHRI,https://portal.ehri-project.eu/api/graphql,94.74%,89.47%,84.21%,57.89%,0.00%,31.58%,10.53%,36.84%,42.10%,84.21%
+Universe API,https://www.universe.com/graphqlhttps://www.universe.com/graphql,82.24%,94.20%,14.01%,88.46%,0.00%,12.32%,FAILED,FAILED,19.23%,91.30%
+Poke API,https://beta.pokeapi.co/graphql/v1beta,33.00%,92.81%,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,33.33%,85.84%
+TCGDex API,https://api.tcgdex.net/v2/graphql,100.00%,100.00%,100.00%,100.00%,33.33%,100.00%,66.67%,33.33%,100.00%,66.67%

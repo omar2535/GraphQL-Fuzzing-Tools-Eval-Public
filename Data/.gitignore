@@ -1,0 +1,6 @@
+# Ignore all temporary files created by Windows
+*.csv:Zone.Identifier
+*.json:Zone.Identifier
+*.parquet:Zone.Identifier
+*.txt:Zone.Identifier
+*.xml:Zone.Identifier

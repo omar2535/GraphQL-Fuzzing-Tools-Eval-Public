@@ -1,0 +1,17 @@
+"User Wallet (33 nodes, 44 edges)",,,"Food Delivery (18 nodes, 19 edges)",,,"Countries (12 nodes, 6 edges)",,,"React-Finland (32 nodes, 19 edges)",,,"Rick&Morty (32 nodes, 19 edges)",
+Generic,5,,Generic,2,,Generic,0,,Generic,0,,Generic,0
+ZAP,4,,ZAP,2,,ZAP,0,,ZAP,0,,ZAP,0
+EvoMaster,4,,EvoMaster,6,,EvoMaster,0,,EvoMaster,0,,EvoMaster,0
+GraphQLer,30,,GraphQLer,15,,GraphQLer,0,,GraphQLer,0,,GraphQLer,0
+,,,,,,,,,,,,,
+"JSON-GraphQL-Server (51 nodes, 75 edges)",,,"Graphql-zero (52 nodes, 44 edges)",,,"Anilist (180 nodes, 48 edges)",,,"EHRI (65 nodes, 28 edges)",,,"Universe (360 nodes, 239 edges)",
+Generic,10,,Generic,12,,Generic,4,,Generic,3,,Generic,1
+ZAP,20,,ZAP,5,,ZAP,0,,ZAP,0,,ZAP,0
+EvoMaster,6,,EvoMaster,5,,EvoMaster,0,,EvoMaster,5,,EvoMaster,1
+GraphQLer,54,,GraphQLer,54,,GraphQLer,4,,GraphQLer,9,,GraphQLer,3
+,,,,,,,,,,,,,
+"PokeAPI (2450 nodes, 459 edges)",,,"TCGDex (18 nodes, 9 edges)",,,,,,,,,,
+Generic,41,,Generic,0,,,,,,,,,
+ZAP,0,,ZAP,0,,,,,,,,,
+EvoMaster,0,,EvoMaster,0,,,,,,,,,
+GraphQLer,266,,GraphQLer,0,,,,,,,,,
